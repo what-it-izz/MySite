@@ -129,5 +129,39 @@ const init = () => {
 // Ensure images are loaded before removing the loading class & running init.
 preloadImages(".card__img").then(() => {
   document.body.classList.remove("loading");
+  // Number of stars
+  const numStars = 200;
+
+  // Function to generate random positions and animations for stars
+  function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    // Random position
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+
+    // Random animation duration
+    const duration = Math.random() * 2 + 1;
+
+    star.style.left = `${x}px`;
+    star.style.top = `${y}px`;
+    star.style.animationDuration = `${duration}s`;
+
+    document.body.appendChild(star);
+  }
+
+  // Generate stars
+  for (let i = 0; i < numStars; i++) {
+      createStar();
+  }
+
+  // Update stars on resize
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.star').forEach(star => star.remove());
+    for (let i = 0; i < numStars; i++) {
+      createStar();
+    }
+  });
   init();
 });
