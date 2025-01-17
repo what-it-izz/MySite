@@ -26,15 +26,6 @@ body {
   justify-content: center;
 }
 
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background-color: white;
-  border-radius: 50%;
-  animation: twinkle 1.5s infinite ease-in-out;
-}
-
 /* Page Loader */
 .js .loading::before,
 .js .loading::after {
@@ -79,122 +70,17 @@ body {
   }
 }
 
-a {
-  text-decoration: none;
-  color: var(--color-link);
-  outline: none;
-  cursor: pointer;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: var(--color-link-hover);
-  outline: none;
-}
-
-/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
-a:focus {
-  /* Provide a fallback style for browsers
-	 that don't support :focus-visible */
-  outline: none;
-  background: lightgrey;
-}
-
-a:focus:not(:focus-visible) {
-  /* Remove the focus indicator on mouse-focus for browsers
-	 that do support :focus-visible */
-  background: transparent;
-}
-
-a:focus-visible {
-  /* Draw a very noticeable focus style for
-	 keyboard-focus on browsers that do support
-	 :focus-visible */
-  outline: 2px solid red;
-  background: transparent;
-}
-
-.unbutton {
-  background: none;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  cursor: pointer;
-}
-
-.unbutton:focus {
-  outline: none;
-}
-
-.frame {
-  padding: var(--page-padding);
-  position: relative;
-  text-transform: uppercase;
-  font-size: 12px;
-  display: grid;
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-  grid-row-gap: 1rem;
-  grid-column-gap: 2rem;
-  pointer-events: none;
-  justify-items: start;
-  grid-template-columns: auto auto;
-  grid-template-areas: "title" "archive" "back" "github" "demos" "sponsor" "tags";
-}
-
-.frame #cdawrap {
-  justify-self: start;
-}
-
-.frame a {
-  pointer-events: auto;
-}
-
-.frame__title {
-  grid-area: title;
-  font-size: inherit;
-  margin: 0;
-}
-
-.frame__back {
-  grid-area: back;
-  justify-self: start;
-}
-
-.frame__archive {
-  grid-area: archive;
-  justify-self: start;
-}
-
-.frame__tags {
-  grid-area: tags;
-}
-
-.frame__github {
-  grid-area: github;
-}
-
-.frame__demos {
-  grid-area: demos;
-  display: flex;
-  gap: 1rem;
-}
-
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
+.star {
   position: absolute;
-  left: 0;
-  top: 0;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 1.5s infinite ease-in-out;
 }
 
-.gloock-regular {
-  font-family: "Gloock", serif;
+.font-regular {
+  font-family: "Saira Stencil One", serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -257,22 +143,6 @@ a:focus-visible {
 }
 
 @media screen and (min-width: 53em) {
-  .frame {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: auto auto auto 1fr;
-    grid-template-rows: auto auto;
-    align-content: space-between;
-    grid-template-areas: "title back archive github sponsor" "tags tags tags demos demos";
-  }
-  .frame #cdawrap,
-  .frame__demos {
-    justify-self: end;
-  }
-
   .card__img {
     width: 6em;
   }
