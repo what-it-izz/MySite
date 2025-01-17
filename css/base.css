@@ -80,9 +80,10 @@ body {
 }
 
 .font-regular {
-  font-family: "Saira Stencil One", serif;
+  font-family: "Press Start 2P", serif;
   font-weight: 400;
-  font-style: normal;
+  /* font-style: normal; */
+  font-size: 36px;
 }
 
 .debug {
@@ -134,7 +135,6 @@ body {
 
 .headings__main {
   line-height: 0.5;
-  font-size: clamp(2.5rem, 1.59rem + 3.883vw, 6.25rem);
 }
 
 .headings_subtitle {
