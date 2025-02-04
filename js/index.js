@@ -90,83 +90,6 @@ const initFirstAnimation = () => {
   );
 };
 
-// Function to initialize the second animation
-// TODO: fix the second animation
-const initSecondAnimation = () => {
-  // Selecting the element with class 'layers' (these are the photos used in the animation)
-  const DOMlayers = document.querySelector('.layers');
-  // Selecting all elements with class 'layers__item' and converting NodeList to an array
-  // (these are the photos used in the animation)
-  const DOMItems = [...DOMlayers.querySelectorAll('.layers__item')];
-  const items = []; // Array to store instances of the Item class
-
-  // Creating new instances of Item for each selected DOM element
-  DOMItems.forEach(item => {
-      items.push(new Item(item)); // Initializing a new object for each item
-  });
-
-  // Selecting all elements with class 'content__inner' and converting NodeList to an array
-  const DOMContentSections = [...document.querySelectorAll('.content > .content__inner')];
-  const contents = []; // Array to store instances of the Content class
-
-  // Creating new instances of Content for each selected DOM element
-  DOMContentSections.forEach(content => {
-      contents.push(new Content(content)); // Initializing a new object for each content
-  });
-
-  // Setting up the animation properties
-  const animationSettings = {
-    duration: 0.5, // Duration of the animation
-    ease: 'power3.inOut', // Type of easing to use for the animation transition
-    delayFactor: 0.13  // Delay between each item's animation
-  };
-
-  // Mapping each Item object to its actual DOM element for the animation
-  const allItems = items.map(item => item.DOM.el);
-
-  // The currently active content element
-  const contentActive = contents.find(content => !content.DOM.el.classList.contains('hidden'));
-
-  // Create the second GSAP timeline
-  tl = gsap.timeline({
-    paused: true,
-    defaults: {
-      duration: animationSettings.duration,
-      ease: animationSettings.ease,
-    },
-  });
-
-  tl.fromTo(allItems, {
-    opacity: 1,
-    'clip-path': 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)',
-  }, {
-    ease: 'power3.in',
-    stagger: animationSettings.delayFactor,
-    'clip-path': 'polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%)',
-  })
-  .to(allItems, {
-    ease: 'power3',
-    stagger: animationSettings.delayFactor,
-    'clip-path': 'polygon(50% 0%, 100% 0%, 100% 43%, 100% 100%, 68% 100%, 32% 100%, 0% 100%, 0% 43%, 0% 0%)',
-  })
-  .to(contentActive.DOM.el, {
-    duration: 1,
-    startAt: { scale: 1 },
-    scale: 1.2,
-    opacity: 0,
-  })
-  .to(allItems, {
-    duration: 1,
-    opacity: 0,
-    onComplete: () => {
-      window.location.href = "index.html";
-    },
-  });
-
-  // Start the animation
-  tl.play();
-};
-
 // Function to generate random positions and animations for stars
 function createStar() {
   const star = document.createElement('div');
@@ -205,13 +128,3 @@ preloadImages(".card__img").then(() => {
   // Run the intro animation
   initFirstAnimation();
 });
-
-// TODO: Uncomment below after the second animation is fixed
-// // Attach the second animation to a click event
-// document.addEventListener('click', (event) => {
-//   const frameElement = document.querySelector('.frame');
-//   if (tl && tl.isActive() || frameElement.contains(event.target)) {
-//     return false;
-//   }
-//   initSecondAnimation();
-// });
