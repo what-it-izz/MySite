@@ -1,8 +1,4 @@
 import { preloadImages } from "./utils.js";
-import { Item } from './item.js'; 
-import { Content } from './content.js';
-
-let tl = null;
 
 // Function to initialize the first animation
 const initFirstAnimation = () => {

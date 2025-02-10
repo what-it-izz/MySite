@@ -147,3 +147,43 @@ body {
     width: 6em;
   }
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation bar styling */
+nav {
+  position: fixed; /* Fixes the navbar at the top */
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  opacity: .5;
+  padding: 15px 20px;
+  color: blue;
+}
+
+.nav-links {
+  display: flex;
+  margin-left: auto; /* Pushes nav-links to the right */
+}
+
+.nav-links li {
+  margin: 0 10px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: blue;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+.nav-links a:hover {
+  background-color: #575757;
+  border-radius: 4px;
+}
