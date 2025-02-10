@@ -86,17 +86,6 @@ body {
   font-size: 36px;
 }
 
-.debug {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 1px;
-  border-radius: 5px;
-  background-color: red;
-  transform: translate(-50%, -50%);
-}
-
 .scene {
   perspective: 1000px;
   overflow: hidden;
@@ -138,7 +127,7 @@ body {
 }
 
 .headings_subtitle {
-  line-height: 0.5;
+  line-height: normal;
   font-size: clamp(1rem, 0.757rem + 1.036vw, 1rem);
 }
 
@@ -186,4 +175,22 @@ nav {
 .nav-links a:hover {
   background-color: #575757;
   border-radius: 4px;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 20px;
+  background-color: white;
+  flex-direction: column; /* Stack contents in column*/
+  opacity: .8;
+  max-width: 80%; /* Prevents from being too wide */
+  margin: 20px auto; /* Adds space around the container while keeping it centered */
+  border-radius: 5%;
+}
+
+h1, h3, h4 {
+  text-align: center; /* Ensures text is centered inside */
+  width: 100%; /* Ensures headers take full width */
 }
